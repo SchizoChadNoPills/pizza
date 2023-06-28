@@ -14,4 +14,13 @@ Autoloader::register();
     <meta charset="UTF-8">
 </head>
 
-<body>
+<header>
+    <?php session_start(); ?>
+    <?php
+    if (isset($_SESSION['mail'])):
+        echo $_SESSION['mail'];
+    else:
+        echo "PAS DE SESSION";
+    endif;
+    ?>
+</header>
