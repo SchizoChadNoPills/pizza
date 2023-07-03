@@ -17,8 +17,8 @@ Autoloader::register();
 <header>
     <?php session_start(); ?>
     <?php
-    if (isset($_SESSION['mail'])):
-        echo $_SESSION['mail'];
+    if (isset($_SESSION['client'])):
+        echo $_SESSION['client']->getNom_client();
     else:
         echo "PAS DE SESSION";
     endif;
