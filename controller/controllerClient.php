@@ -26,10 +26,11 @@ function Inscrire($postParams){
  */
 function Connecter($postParams){
     require_once(realpath(__DIR__ . '/../model/modelClient.php'));
-    if (testConnexion($postParams) == true){
+    $num_client = testConnexion($postParams);
+    if ($num_client != false){
         $titre = "Succés";
         $message = "Vous êtes bien connecté ";
-        $_SESSION['mail'] = $postParams['mail'];
+        $_SESSION['client'] = new Client(getClientByNumClient($num_client));
     }else{
         $titre = "Echec";
         $message = "Vous n'êtes pas connecté. Veuillez réessayer, ou contacter l'administraeur";
